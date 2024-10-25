@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "cig-table": {
+      "projectType": "library",
+      "root": "projects/cig-table",
+      "sourceRoot": "projects/cig-table/src",
+      "prefix": "ct",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cig-table/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cig-table/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cig-table/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/cig-table/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }
